@@ -5,4 +5,7 @@ class Artist < ActiveRecord::Base
  # self.primary_keys = :artist_name, :category_id
   validates :artist_name, uniqueness: {scope: :category_id}
   mount_uploader :image, AvatarUploader
+  def to_s
+    artist_name
+  end
 end

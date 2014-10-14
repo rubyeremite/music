@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010065745) do
+ActiveRecord::Schema.define(version: 20141011055851) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20141010065745) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "albums", force: true do |t|
+    t.string   "album_name",        limit: 100
+    t.integer  "year"
+    t.string   "image"
+    t.integer  "genre_type_id"
+    t.integer  "genre_language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "albums", ["album_name"], name: "index_albums_on_album_name", using: :btree
+  add_index "albums", ["genre_language_id"], name: "index_albums_on_genre_language_id", using: :btree
+  add_index "albums", ["genre_type_id"], name: "index_albums_on_genre_type_id", using: :btree
+
   create_table "artists", force: true do |t|
     t.string   "artist_name"
     t.string   "image"
@@ -61,5 +75,22 @@ ActiveRecord::Schema.define(version: 20141010065745) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "genre_languages", force: true do |t|
+    t.string   "genrename",  limit: 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genre_languages", ["genrename"], name: "index_genre_languages_on_GenreName", unique: true, using: :btree
+
+  create_table "genre_types", force: true do |t|
+    t.string   "genretypename",    limit: 40
+    t.integer  "GenreLanguage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genre_types", ["GenreLanguage_id"], name: "index_genre_types_on_GenreLanguage_id", using: :btree
 
 end

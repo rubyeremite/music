@@ -43,11 +43,24 @@ gem "formtastic"
 gem 'auto_strip_attributes'
 gem 'will_paginate'
 
-
+gem 'simple_form'
 gem "aws-s3"
 gem "fog"
 gem "mini_magick"
 gem 'carrierwave'
 gem 'fancybox'
-gem 'composite_primary_keys', '~>7.0.10'
-gem 'better_errors'
+#gem 'composite_primary_keys', '~>7.0.10'
+# gem 'better_errors'
+# gem 'binding_of_caller'
+#gem 'zeus'
+# group :development do
+#   gem 'guard'
+#   gem 'guard-livereload'
+# end
+group :development do
+  gem 'meta_request', '0.2.1'
+end
+group :development do
+  gem 'quiet_assets'  # only logs the important data in log file.
+end
+gem 'activesupport-json_encoder', github: 'rails/activesupport-json_encoder'

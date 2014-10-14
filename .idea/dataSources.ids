@@ -3,4 +3,7 @@
   <data-source source="LOCAL" name="Rails music: development" uuid="fef630e9-1087-4d89-9e86-370d8f43a851">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails music: test" uuid="41234317-3c0d-433a-bdba-8dcf1d47074d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

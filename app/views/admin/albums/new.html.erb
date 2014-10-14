@@ -1,0 +1,51 @@
+
+
+<%= form_for @album, url: new_admin_album_path, :remote=> true ,multipart: true do |f| %>
+    <div>
+    <%= f.label "Language" %>
+    <%=f.collection_select :id, GenreLanguage.order(:genrename),:id,:genrename, :onchange => 'get_genere_types.call(this)' %>
+    </div>
+    <br>
+    <div>
+      <%= f.label "Type" %>
+      <%=f.collection_select :id, GenreType.order(:genretypename ),:id,:genretypename %>
+    <%#= f.grouped_collection_select :id ,GenreLanguage.order(:genrename),:genrename,:genretypename,:to_s,:id,:genretypename, %>
+    </div>
+    <br>
+    <div>
+    <%= f.label "Album Name" %>
+    <%= f.text_field :album_name %>
+    </div>
+    <br>
+    <div>
+      <%= f.label "Year" %>
+    <%= f.text_field :year,collection: Date.today.year.downto(1960), prompt: "choose year" %>
+    </div>
+    <br>
+    <div>
+      <%= f.label "Image" %>
+    <%= f.file_field :image, :label => 'Album image', :as => :file %>
+    </div>
+
+
+    <%#=f.association :genre_language,prompt: 'Choose language',collection: GenreLanguage.all.order('genrename') %>
+    <%#= f.association :GenreType  ,collection: GenreType.all.order('genretype_name') %>
+
+
+    <%#= f.input :genre_type, as: :select, GenreTypes.order(:genretypename),:id, :genretypename %>
+
+<%#= f.input :year ,:collection=>1..5, :as=> :radio_buttons %>
+<% end %>
+
+
+<script>
+  function get_genere_types() {
+      //alert("hello");
+      console.log("comingggggggggggg.")
+  }
+  // $(document).ready(function(){
+  //   alert('hello');
+  // }) 
+
+
+    </script>

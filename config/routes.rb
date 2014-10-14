@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
+
   #mount_activeadmin_settings()
+ # get '/admin/albums/new' => 'admin/alubms#new', as: :admin_albums_new
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
